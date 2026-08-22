@@ -48,8 +48,6 @@
                 }
             }
 
-            Console.ReadLine();
-
         }// while loop
 
       
