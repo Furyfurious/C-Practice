@@ -48,6 +48,7 @@ namespace Student_System
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(message);
             Console.ResetColor();
+            Console.WriteLine();
         }
     }
 }
