@@ -8,18 +8,25 @@ namespace Student_System
     {
         public void Calculate()
         {
-            Console.Write("Enter 1st Number: ");
-            var num1 = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                Console.Write("Enter 1st Number: ");
+                var num1 = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter 1st Number: ");
-            var num2 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter 1st Number: ");
+                var num2 = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter Symbol + - * / : ");
-            var symbol = Convert.ToChar(Console.ReadLine());
+                Console.Write("Enter Symbol + - * / : ");
+                var symbol = Convert.ToChar(Console.ReadLine());
 
-            var result = calculator(num1, num2, symbol);
+                var result = calculator(num1, num2, symbol);
 
-            Console.WriteLine($"Calculated: {num1} {symbol} {num2} = {result}");
+                Console.WriteLine($"Calculated: {num1} {symbol} {num2} = {result}");
+            }
+            catch (FormatException ex)
+            {
+                DisplayError(ex.Message);
+            }
         }
 
         public static double calculator(int num1, int num2, char symbol)
@@ -32,6 +39,15 @@ namespace Student_System
                 '/' => num1 != 0 ? num1 / num2 : throw new DivideByZeroException(),
                 _ => throw new InvalidOperationException($"Invalid Operation {symbol}")
             };
+        }
+
+        public static void DisplayError(string message)
+        {
+            Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }

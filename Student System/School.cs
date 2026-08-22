@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static Student_System.School;
 
 namespace Student_System
 {
@@ -8,10 +9,6 @@ namespace Student_System
     {
         List<Students> students = new List<Students>();
 
-        public void Add(string firstname, string lastname, int year)
-        {
-            students.Add(new Students(firstname, lastname, year));
-        }
 
         public void Display()
         {
@@ -19,7 +16,9 @@ namespace Student_System
             {
 
                 Console.WriteLine();
-                Console.WriteLine($"Hello {student.StudentFirstname} {student.StudentLastname} in the year {student.StudentYear}");
+                Console.WriteLine($"Student Name:{student.StudentFirstname} {student.StudentLastname}");
+                Console.WriteLine($"Student Year:{student.StudentYear}");
+                Console.WriteLine();
             }
         }
 
@@ -34,24 +33,63 @@ namespace Student_System
             }
         }
 
-        public void student_ADD()
+        public void AddStudents()
         {
-
-        }
-
-        public class Students
-        {
-            public string StudentFirstname { get; set; }
-            public string StudentLastname { get; set; }
-            public int StudentYear { get; set; }
-
-            public Students(string studentFirstname, string studentLastname, int studentYear)
+            while (true)
             {
-                StudentFirstname = studentFirstname;
-                StudentLastname = studentLastname;
-                StudentYear = studentYear;
+
+                Console.WriteLine();
+                Console.Write("Do you want to add student: (yes/no) : ");
+                string ans = Console.ReadLine().ToLower();
+
+
+                if (ans != "yes")
+                {
+                    break;
+                }
+
+                Console.Write("How many student do you want to add? : ");
+                int num_Student = Convert.ToInt32(Console.ReadLine());
+
+                for (int i = 0; i < num_Student; i++)
+                {
+
+                    Console.WriteLine($"Student# {i + 1}");
+                    Console.Write("Enter student first name: ");
+                    string firstname = Console.ReadLine();
+                    firstname = char.ToUpper(firstname[0]) + firstname.Substring(1);
+
+                    Console.Write("Enter student last name: ");
+                    string lastname = Console.ReadLine();
+                    lastname = char.ToUpper(lastname[0]) + lastname.Substring(1);
+
+                    Console.Write("Enter student year: ");
+                    int year = Convert.ToInt32(Console.ReadLine());
+
+                    students.Add(new Students(firstname, lastname, year));
+
+                }
             }
+
         }
+
+        
+    }
+
+    public class Students
+    {
+        public string StudentFirstname { get; set; }
+        public string StudentLastname { get; set; }
+        public int StudentYear { get; set; }
+
+        public Students(string studentFirstname, string studentLastname, int studentYear)
+        {
+            StudentFirstname = studentFirstname;
+            StudentLastname = studentLastname;
+            StudentYear = studentYear;
+        }
+
 
     }
+
 }
