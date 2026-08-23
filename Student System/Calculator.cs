@@ -41,7 +41,7 @@ namespace Student_System
             };
         }
 
-        public static void DisplayError(string message)
+        public void DisplayError(string message)
         {
             Console.WriteLine();
             Console.BackgroundColor = ConsoleColor.White;

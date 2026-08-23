@@ -7,6 +7,7 @@ namespace Student_System
 {
     public class School
     {
+        Calculator error = new Calculator();
         List<Students> students = new List<Students>();
 
 
@@ -38,37 +39,54 @@ namespace Student_System
             while (true)
             {
 
-                Console.WriteLine();
-                Console.Write("Do you want to add student: (yes/no) : ");
-                string ans = Console.ReadLine().ToLower();
-
-
-                if (ans != "yes")
+                try
                 {
-                    break;
+                    Console.WriteLine();
+                    Console.Write("Do you want to add student: (yes/no) : ");
+                    string ans = Console.ReadLine().ToLower();
+
+                    if (ans != "yes")
+                    {
+                        break;
+                    }
+
+                    Console.Write("How many student do you want to add? : ");
+                    int num_Student = Convert.ToInt32(Console.ReadLine());
+
+                    for (int i = 0; i < num_Student; i++)
+                    {
+                        try
+                        {
+                            Console.WriteLine($"Student# {i + 1}");
+                            Console.Write("Enter student first name: ");
+                            string firstname = Console.ReadLine();
+                            firstname = char.ToUpper(firstname[0]) + firstname.Substring(1);
+
+                            Console.Write("Enter student last name: ");
+                            string lastname = Console.ReadLine();
+                            lastname = char.ToUpper(lastname[0]) + lastname.Substring(1);
+
+                            Console.Write("Enter student year: ");
+                            int year = Convert.ToInt32(Console.ReadLine());
+
+                            students.Add(new Students(firstname, lastname, year));
+                        }
+
+                        catch (FormatException ex)
+                        {
+                            error.DisplayError(ex.Message);
+                        }
+
+                    }
                 }
 
-                Console.Write("How many student do you want to add? : ");
-                int num_Student = Convert.ToInt32(Console.ReadLine());
-
-                for (int i = 0; i < num_Student; i++)
+                catch (FormatException ex)
                 {
-
-                    Console.WriteLine($"Student# {i + 1}");
-                    Console.Write("Enter student first name: ");
-                    string firstname = Console.ReadLine();
-                    firstname = char.ToUpper(firstname[0]) + firstname.Substring(1);
-
-                    Console.Write("Enter student last name: ");
-                    string lastname = Console.ReadLine();
-                    lastname = char.ToUpper(lastname[0]) + lastname.Substring(1);
-
-                    Console.Write("Enter student year: ");
-                    int year = Convert.ToInt32(Console.ReadLine());
-
-                    students.Add(new Students(firstname, lastname, year));
-
+                    
+                    error.DisplayError(ex.Message);
                 }
+
+                
             }
 
         }
