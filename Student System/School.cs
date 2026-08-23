@@ -8,7 +8,7 @@ namespace Student_System
     public class School
     {
         Calculator error = new Calculator();
-        List<Students> students = new List<Students>();
+        public List<Students> students  = new List<Students>();
 
 
         public void Display()
@@ -94,20 +94,6 @@ namespace Student_System
         
     }
 
-    public class Students
-    {
-        public string StudentFirstname { get; set; }
-        public string StudentLastname { get; set; }
-        public int StudentYear { get; set; }
-
-        public Students(string studentFirstname, string studentLastname, int studentYear)
-        {
-            StudentFirstname = studentFirstname;
-            StudentLastname = studentLastname;
-            StudentYear = studentYear;
-        }
-
-
-    }
+    
 
 }
