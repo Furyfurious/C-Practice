@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             // Stanciate class school
-            var student = new School();
+            var students = new School();
             var isRunning = true;
             var student_tools = new Student_tools();
             while (isRunning)
@@ -23,19 +23,19 @@
                 switch (choice)
                 {
                     case 1:
-                        student.AddStudents();
+                        students.AddStudents();
                         break;
 
                     case 2:
-                        student.Display();
+                        students.Display();
                         break;
 
                     case 3:
-                        student.Display_ID();
+                        students.Display_ID();
                         break;
 
                     case 4:
-                        student_tools.Tools();
+                        student_tools.Tools(students);
                         break;
 
                     case 5:
@@ -47,8 +47,6 @@
                         break;
                 }
             }
-
-            Console.ReadLine();
 
         }// while loop
 

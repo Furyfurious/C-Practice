@@ -28,16 +28,38 @@ namespace Student_System
 
             for(var i = 0; i < Subjects.Count; i++)
             {
-                Console.WriteLine("Enter Grade");
-                Console.Write($"{Subjects[i]} Grade: ");
-                var grades = (Convert.ToDouble(Console.ReadLine()));
-                total += grades;
-                Console.WriteLine();
+                try
+                {
+                    checked
+                    {
+                        Console.WriteLine("Enter Grade");
+                        Console.Write($"{Subjects[i]} Grade: ");
+                        var grades = (Convert.ToDouble(Console.ReadLine()));
+                        total += grades;
+                        Console.WriteLine();
+                    }
+                    
+                }
+                catch (FormatException ex)
+                {
+                    DisplayError(ex.Message);
+                }
+                
             }
 
             var FinalGrade = total / Subjects.Count;
 
             Console.WriteLine($"Final Grade: {FinalGrade:F2}");
+            Console.WriteLine();
+        }
+
+        public static void DisplayError(string message)
+        {
+            Console.WriteLine();
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
             Console.WriteLine();
         }
     }
