@@ -36,7 +36,7 @@ namespace Student_System
                     break;
             }
 
-            Console.WriteLine(schools);
+            
         }
     }
 }

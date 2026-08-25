@@ -17,7 +17,7 @@ namespace Student_System
             {
                 Console.WriteLine($"Subject #{i+1}");
                 Console.Write("Enter Subject Name: ");
-                Subjects.Add(Console.ReadLine());
+                Subjects.Add(Console.ReadLine() ?? "");
 
                 Subjects[i] = Char.ToUpper(Subjects[i][0]) + Subjects[i].Substring(1).ToLower();
           
