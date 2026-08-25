@@ -11,13 +11,13 @@ namespace Student_System
             Console.Write("How many is your subject: ");
             var numSub = Convert.ToInt32(Console.ReadLine());
 
-            List<string> Subjects = new List<string>();
+            var Subjects = new string[numSub];
 
             for(var i=0; i < numSub; i++)
             {
                 Console.WriteLine($"Subject #{i+1}");
                 Console.Write("Enter Subject Name: ");
-                Subjects.Add(Console.ReadLine() ?? "");
+                Subjects[i] = Console.ReadLine() ?? "";
 
                 Subjects[i] = Char.ToUpper(Subjects[i][0]) + Subjects[i].Substring(1).ToLower();
           
@@ -26,7 +26,7 @@ namespace Student_System
 
             double total = 0;
 
-            for(var i = 0; i < Subjects.Count; i++)
+            for(var i = 0; i < Subjects.Length; i++)
             {
                 try
                 {
@@ -47,7 +47,7 @@ namespace Student_System
                 
             }
 
-            var FinalGrade = total / Subjects.Count;
+            var FinalGrade = total / Subjects.Length;
 
             Console.WriteLine($"Final Grade: {FinalGrade:F2}");
             Console.WriteLine();
