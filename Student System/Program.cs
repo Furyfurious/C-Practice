@@ -4,10 +4,13 @@
     {
         static void Main(string[] args)
         {
-            // Stanciate class school
+
+
             var students = new School();
             var isRunning = true;
             var student_tools = new Student_tools();
+
+            // Display the main menu and user selection
             while (isRunning)
             {
                 Console.WriteLine("1. Add Student");
@@ -39,6 +42,7 @@
                         break;
 
                     case 5:
+                        // stop run 
                         isRunning = false;
                         break;
 
