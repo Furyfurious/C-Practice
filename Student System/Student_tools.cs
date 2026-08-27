@@ -17,8 +17,8 @@ namespace Student_System
             Console.Write("Choose what tool you want: ");
             var choice = Convert.ToInt32(Console.ReadLine());
 
-            var calculator = new Calculator();
-            var GradeCalculator = new Grade();
+            var calculator = new Calculator(new HighlightError());
+            var GradeCalculator = new Grade(new HighlightError());
             var Search = new StudentSearch();
             switch (choice)
             {

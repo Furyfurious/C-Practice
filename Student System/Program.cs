@@ -6,7 +6,7 @@
         {
 
 
-            var students = new School();
+            var students = new School(new HighlightError());
             var isRunning = true;
             var student_tools = new Student_tools();
 
