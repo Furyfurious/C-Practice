@@ -43,7 +43,7 @@ namespace Student_System
                 {
                     Console.WriteLine();
                     Console.Write("Do you want to add student: (yes/no) : ");
-                    string ans = Console.ReadLine().ToLower();
+                    string ans = Console.ReadLine() ?? "".ToLower() ;
 
                     if (ans != "yes")
                     {
@@ -59,11 +59,11 @@ namespace Student_System
                         {
                             Console.WriteLine($"Student# {i + 1}");
                             Console.Write("Enter student first name: ");
-                            string firstname = Console.ReadLine();
+                            string firstname = Console.ReadLine() ?? "";
                             firstname = char.ToUpper(firstname[0]) + firstname.Substring(1);
 
                             Console.Write("Enter student last name: ");
-                            string lastname = Console.ReadLine();
+                            string lastname = Console.ReadLine() ?? "";
                             lastname = char.ToUpper(lastname[0]) + lastname.Substring(1);
 
                             Console.Write("Enter student year: ");
