@@ -6,6 +6,13 @@ namespace Student_System
 {
     public class Calculator
     {
+        private readonly IDisplayerror HighlightError;
+
+        public Calculator(IDisplayerror error)
+        {
+            HighlightError = error;
+        }
+
         public void Calculate()
         {
             try
@@ -27,7 +34,7 @@ namespace Student_System
             catch (FormatException ex)
             {
                 //method that highlight error message to user
-                DisplayError(ex.Message);
+                HighlightError.Displayerror(ex.Message);
             }
         }
 
@@ -44,16 +51,7 @@ namespace Student_System
             };
         }
 
-        //Modified the display of error to highlight to user
-        public void DisplayError(string message)
-        {
-            Console.WriteLine();
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
-            Console.ResetColor();
-            Console.WriteLine();
-        }
+
     }
 }
 

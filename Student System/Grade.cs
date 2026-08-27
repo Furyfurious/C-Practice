@@ -6,6 +6,14 @@ namespace Student_System
 {
     public class Grade
     {
+
+        private readonly IDisplayerror displayerror;
+
+        public Grade(IDisplayerror displayerror)
+        {
+            this.displayerror = displayerror;
+        }
+
         public void GradeCalculate()
         {
 
@@ -50,7 +58,7 @@ namespace Student_System
                 catch (FormatException ex)
                 {
                     // highlight the error to console
-                    DisplayError(ex.Message);
+                    displayerror.Displayerror(ex.Message);
                 }
                 
             }
@@ -63,14 +71,6 @@ namespace Student_System
         }
 
 
-        public static void DisplayError(string message)
-        {
-            Console.WriteLine();
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(message);
-            Console.ResetColor();
-            Console.WriteLine();
-        }
+
     }
 }
