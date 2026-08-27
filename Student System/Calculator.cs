@@ -9,7 +9,7 @@ namespace Student_System
         public void Calculate()
         {
             try
-            {
+            {   // Display calculator application
                 Console.Write("Enter 1st Number: ");
                 var num1 = Convert.ToInt32(Console.ReadLine());
 
@@ -19,16 +19,19 @@ namespace Student_System
                 Console.Write("Enter Symbol + - * / : ");
                 var symbol = Convert.ToChar(Console.ReadLine());
 
-                var result = calculator(num1, num2, symbol);
+                var result = calculator(num1, num2, symbol); // method from calculator
 
                 Console.WriteLine($"Calculated: {num1} {symbol} {num2} = {result}");
             }
+            //handle exception 
             catch (FormatException ex)
             {
+                //method that highlight error message to user
                 DisplayError(ex.Message);
             }
         }
 
+        // handle the calculation
         public static double calculator(int num1, int num2, char symbol)
         {
             return symbol switch
@@ -41,6 +44,7 @@ namespace Student_System
             };
         }
 
+        //Modified the display of error to highlight to user
         public void DisplayError(string message)
         {
             Console.WriteLine();
