@@ -52,8 +52,8 @@
                 }
             }
 
-        }// while loop
+        }
 
       
-    }// class
+    }
 }

@@ -8,7 +8,7 @@ namespace Student_System
     public class School
     {
 
-        public List<Students> students  = new List<Students>(); // Object of Array Students
+        public List<Students> students  = new(); // Object of Array Students
 
         private readonly IDisplayerror Error; // Injection DisplayError
 
@@ -60,6 +60,7 @@ namespace Student_System
                         // else break the loop
                         break;
                     }
+                    
 
                     // Ask the user how many to add
                     Console.Write("How many student do you want to add? : ");
